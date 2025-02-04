@@ -84,14 +84,4 @@ int main()
         cout << "Circle with radius: " << tmp << endl;
     }
     cout << "Sum of radii:" << sumRadius << endl;
-
-
-    // Задание 8*. Суммируем радиусы с помощью OpenMP.
-    double sum_radius = 0.0;
-#pragma omp parallel for reduction(+:total_radius)
-    for (size_t i = 0; i < circles.size(); ++i) {
-        sum_radius += circles[i]->getRadius();
-    }
-    cout << "Sum of radii (OpenMP):" << sum_radius << endl;
-
 }
