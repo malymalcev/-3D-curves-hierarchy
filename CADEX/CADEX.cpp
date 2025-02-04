@@ -74,8 +74,8 @@ int main()
     }
 
     // Задание 5-6. Сортируем вектор circles в порядке возрастания радиусов окружностей и одновременно с этим суммируем их.
-    double sumRadius = 0;
-    double tmp = 0;
+    double sumRadius = 0.0;
+    double tmp = 0.0;
     sort(circles.begin(), circles.end(), pairCircles);
     cout << "\nSorted Circles by Radius:" << endl;
     for ( auto& circle : circles) {
