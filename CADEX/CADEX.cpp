@@ -22,7 +22,6 @@ int main()
     for (int i = 0; i < 10; i++)
     {
         type = rand() % 3;
-        cout << type << endl;
         // Не совсем понял, должны быть центры кривых в начале координат или нет, поэтому сделал 
         // для случая с любой начальной точкой, но если центр должен быть { 0,0,0 }, то раскомментируйте 
         //строку 29 и закомментируйте 30.
@@ -84,4 +83,12 @@ int main()
         cout << "Circle with radius: " << tmp << endl;
     }
     cout << "Sum of radii:" << sumRadius << endl;
+
+    // Задание 8*. Суммируем радиусы с помощью OpenMP.
+    double sum_radius = 0.0;
+#pragma omp parallel for reduction(+:total_radius)
+    for (int i = 0; i < circles.size(); i++) {
+        sum_radius += circles[i]->getRadius();
+    }
+    cout << "Sum of radii (OpenMP):" << sum_radius << endl;
 }
