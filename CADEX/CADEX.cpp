@@ -1,4 +1,4 @@
-﻿#include <iostream>
+#include <iostream>
 #include <cstdlib>
 #include <vector>
 #include <algorithm>
@@ -56,18 +56,18 @@ int main()
     // Задание 3. Выводим значения точек и производных для кривых из вектора curves при t = PI / 4
     cout<<"Coordinates of points and derivatives:"<< endl;
     double t = M_PI / 4;
-    for (const auto& curve : curves)
+    for (int i = 0; i < curves.size();i++)
     {
-        Point p = curve->getPoint(t);
-        Vector v = curve->getVector(t);
+        Point p = curves[i]->getPoint(t);
+        Vector v = curves[i]->getVector(t);
         cout.precision(8);
         cout <<"Point: " << p.x << ", " << p.y << ", " << p.z <<"; Derivative:" << v.dx << ", " << v.dy << ", " << v.dz << endl;
     }
 
     // Задание 4. Создаем вектор circles и заполняем его окружностями, которые есть в векторе curves.
     vector<shared_ptr<Circle>> circles;
-    for (auto& curve : curves) {
-        if ( auto circle = dynamic_pointer_cast<Circle>(curve)) {
+    for (int i = 0; i < curves.size(); i++) {
+        if ( auto circle = dynamic_pointer_cast<Circle>(curves[i])) {
             circles.push_back(circle);
         }
     }
@@ -77,12 +77,13 @@ int main()
     double tmp = 0.0;
     sort(circles.begin(), circles.end(), pairCircles);
     cout << "\nSorted Circles by Radius:" << endl;
-    for ( auto& circle : circles) {
-        tmp = circle->getRadius();
+    for (int i = 0; i < circles.size(); i++) {
+        tmp = circles[i]->getRadius();
         sumRadius += tmp;
         cout << "Circle with radius: " << tmp << endl;
     }
     cout << "Sum of radii:" << sumRadius << endl;
+
 
     // Задание 8*. Суммируем радиусы с помощью OpenMP.
     double sum_radius = 0.0;
