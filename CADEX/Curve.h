@@ -9,7 +9,7 @@
 using namespace std;
 
 
-// Задание 1. Класс кривых Curve. Его наследники классы Circle, Ellipse, Helix.
+// Р—Р°РґР°РЅРёРµ 1. РљР»Р°СЃСЃ РєСЂРёРІС‹С… Curve. Р•РіРѕ РЅР°СЃР»РµРґРЅРёРєРё РєР»Р°СЃСЃС‹ Circle, Ellipse, Helix.
 
 struct Point {
 	double x, y, z;
@@ -51,7 +51,7 @@ public:
 		radius = other.radius;
 		center = other.center;
 	}
-	// Программа работает для произвольного центра окружности/элипса/спирали. 
+	// РџСЂРѕРіСЂР°РјРјР° СЂР°Р±РѕС‚Р°РµС‚ РґР»СЏ РїСЂРѕРёР·РІРѕР»СЊРЅРѕРіРѕ С†РµРЅС‚СЂР° РѕРєСЂСѓР¶РЅРѕСЃС‚Рё/СЌР»РёРїСЃР°/СЃРїРёСЂР°Р»Рё. 
 	Point getPoint(double t) override 
 	{
 		return { center.x + radius * cos(t), center.y + radius * sin(t), center.z };
