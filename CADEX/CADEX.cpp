@@ -86,7 +86,7 @@ int main()
 
     // Задание 8*. Суммируем радиусы с помощью OpenMP.
     double sum_radius = 0.0;
-#pragma omp parallel for reduction(+:total_radius)
+#pragma omp parallel for reduction(+:sum_radius)
     for (int i = 0; i < circles.size(); i++) {
         sum_radius += circles[i]->getRadius();
     }
